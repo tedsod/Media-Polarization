@@ -1,6 +1,7 @@
 import json
 import csv
 from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.feature_extraction.text import TfidfVectorizer
 
 file_path = 'data/splits/media/train.tsv'
 train = []
@@ -20,26 +21,9 @@ with open(article_path, 'r') as file:
 
 print(article_json["authors"])
 
-# Example usage
-content = "Your article content here"
-
-##removing stop words from text
-with open("data/stop_words_english.json", 'r') as file:
-    stop_words_data = json.load(file)
-    stop_words_set = set(stop_words_data)
-
-def remove_stop_words(content):
-    words = content.split()
-    filtered_words = [word for word in words if word not in stop_words_set]
-    filtered_content = ' '.join(filtered_words)
-    
-    return filtered_content
 
 
 
 
 
 
-
-
-filtered_content = remove_stop_words(content)
